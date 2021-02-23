@@ -1,0 +1,51 @@
+{
+	"setup": [
+		{
+			"name": "brew",
+			"to_install": true,
+			"commands": [
+				"curl -fsSL https://rawgit.com/kube/42homebrew/master/install.sh | zsh",
+				"[ -d ~/goinfre ] || ln -s /goinfre/$(whoami) ~/goinfre",
+				"mv ~/.brew ~/goinfre",
+				"ln -s ~/goinfre/.brew ~/.brew"
+			]
+		},
+		{
+			"name": "node & npm",
+			"to_install": true,
+			"commands": [
+				"~/.brew/bin/brew install node",
+				"mv ~/.npm ~/goinfre",
+				"ln -s ~/goinfre/.npm ~/.npm"
+			]
+		},
+		{
+			"name": "yarn",
+			"to_install": false,
+			"commands": [
+				"~/.brew/bin/npm install --global yarn"
+			]
+		},
+		{
+			"name": "docker",
+			"to_install": true,
+			"commands": [
+				"~/.brew/bin/brew install docker"
+			]
+		},
+		{
+			"name": "docker-machine",
+			"to_install": true,
+			"commands": [
+				"~/.brew/bin/brew install docker-machine"
+			]
+		},
+		{
+			"name": "docker-compose",
+			"to_install": false,
+			"commands": [
+				"~/.brew/bin/brew install docker-compose"
+			]
+		}
+	]
+}

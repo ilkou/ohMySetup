@@ -1,0 +1,44 @@
+#!/bin/sh
+# ohMyZsh
+
+# Dependencies
+
+## JQ
+
+jq_exe=jq
+jq_version=jq-1.6
+
+curl -L -o $jq_exe "https://github.com/stedolan/jq/releases/download/$jq_version/jq-osx-amd64"
+
+chmod +x $jq_exe
+
+./$jq_exe
+
+# Install tools
+
+setup_install()
+{
+	tool_name=$(cat config.json | jq ".setup[$1].name")
+	echo "Installing $tool_name..."
+	COMMANDS_LENGTH=$(cat config.json | jq ".setup[$1].commands | length")
+	for (( col=0; col<$COMMANDS_LENGTH; col++ ))
+	do
+		command=$(cat config.json | jq -r ".setup[$1].commands | .[$col]")
+		eval "$command"
+	done
+}
+
+SETUP_LENGTH=$(cat config.json | jq '.setup | length')
+
+for (( row=1; row<$SETUP_LENGTH; row++ ))
+do
+	if [[ $(cat config.json | jq '.setup[0].to_install') = true ]]; then
+		setup_install $row
+	fi
+done
+
+# Free up
+
+rm -rf $jq_exe
+
+# End
