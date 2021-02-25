@@ -10,4 +10,8 @@ git clone https://github.com/ilkou/ohMySetup ~/ohMySetup; cd ~/ohMySetup; sh ind
 
 `config.json` file allows you to add/remove/modify the configuration of your setup
 
+### TO-DO
 
+* remove symbolic link warnings
+
+* include ~/.zshrc file

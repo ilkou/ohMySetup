@@ -20,6 +20,18 @@
 			]
 		},
 		{
+			"name": "nvm",
+			"to_install": false,
+			"commands": [
+				"~/.brew/bin/brew install nvm",
+				"[ -d ~/.nvm ] || mkdir ~/.nvm",
+				"mv ~/.npm ~/goinfre",
+				"ln -s ~/goinfre/.npm ~/.npm",
+				"echo \"export NVM_DIR=~/.nvm\" >> ~/.zshrc",
+				"echo \"source $(brew --prefix nvm)/nvm.sh\" >> ~/.zshrc"
+			]
+		},
+		{
 			"name": "yarn",
 			"to_install": false,
 			"commands": [
@@ -30,7 +42,12 @@
 			"name": "docker",
 			"to_install": true,
 			"commands": [
-				"~/.brew/bin/brew install docker"
+				"~/.brew/bin/brew install docker",
+				"[ -d ~/.docker ] || mkdir ~/.docker",
+				"mv ~/.docker ~/goinfre",
+				"ln -s ~/goinfre/.docker ~/.docker",
+				"mv ~/Library/Containers/com.docker.docker ~/goinfre",
+				"ln -s ~/goinfre/com.docker.docker ~/Library/Containers/com.docker.docker"
 			]
 		},
 		{
