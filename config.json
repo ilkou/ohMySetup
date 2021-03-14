@@ -12,7 +12,7 @@
 		},
 		{
 			"name": "node & npm",
-			"to_install": true,
+			"to_install": false,
 			"commands": [
 				"~/.brew/bin/brew install node",
 				"mv ~/.npm ~/goinfre",
@@ -40,9 +40,16 @@
 		},
 		{
 			"name": "docker",
-			"to_install": true,
+			"to_install": false,
 			"commands": [
-				"~/.brew/bin/brew install docker",
+				"~/.brew/bin/brew install docker"
+			]
+		},
+		{
+			"name": "docker configuration",
+			"to_install": false,
+			"commands": [
+				"echo \"please run the following commands after creating your first docker machine/pull ur first image\"",
 				"[ -d ~/.docker ] || mkdir ~/.docker",
 				"mv ~/.docker ~/goinfre",
 				"ln -s ~/goinfre/.docker ~/.docker",
@@ -52,7 +59,7 @@
 		},
 		{
 			"name": "docker-machine",
-			"to_install": true,
+			"to_install": false,
 			"commands": [
 				"~/.brew/bin/brew install docker-machine"
 			]
